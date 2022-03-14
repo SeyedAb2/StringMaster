@@ -11,6 +11,11 @@ public class C_LoopAndString {
      * the given character
      */
     public static boolean containsDoubleChar(String s, char ch) {
+        for (int i = 0 ; i < s.length() - 1 ; i++) {
+            if ( s.charAt(i) == ch  && s.charAt(i+1) == ch ) {
+                return true;
+            }
+        }
         return false;
     }
 
