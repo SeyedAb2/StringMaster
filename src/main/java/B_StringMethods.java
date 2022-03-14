@@ -9,7 +9,8 @@ public class B_StringMethods {
      * @return the full name
      */
     public static String fullName(String firstName, String lastName) {
-        return null;
+       	String str = firstName + " " + lastName ;
+        return str.trim();
     }
 
     /**
