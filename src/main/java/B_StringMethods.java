@@ -24,7 +24,17 @@ public class B_StringMethods {
      * the given number
      */
     public static boolean certainNumberOfChar(String text, char ch, int cnt) {
-        return false;
+        int j = 0;
+        for (int i = 0; i < text.length(); i++) {
+        	if (text.charAt(i) == ch) {
+            	j ++ ;
+            }
+        }
+        if (j == cnt) {
+        	return true ;
+        }	else {
+        	return false;
+        }
     }
 
     /**
@@ -36,6 +46,11 @@ public class B_StringMethods {
      * @return the smaller word
      */
     public static String firstWord(String wordA, String wordB) {
-        return null;
-    }
+        int compare = wordA.compareTo(wordB);
+        if (compare > 0) {
+        	return wordB;
+        } else {
+        	return wordA;
+        }
+	}
 }
