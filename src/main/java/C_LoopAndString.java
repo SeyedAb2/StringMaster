@@ -11,9 +11,11 @@ public class C_LoopAndString {
      * the given character
      */
     public static boolean containsDoubleChar(String s, char ch) {
-        for (int i = 0 ; i < s.length() - 1 ; i++) {
-            if ( s.charAt(i) == ch  && s.charAt(i+1) == ch ) {
-                return true;
+        for (int i=0 ; i<s.length()-1 ; i++ ){
+            if ((int)s.charAt(i) ==(int)ch){
+                if ((int) s.charAt(i+1) ==(int) ch){
+                    return true;
+                }
             }
         }
         return false;
@@ -29,7 +31,48 @@ public class C_LoopAndString {
      * @param offset shift amount
      */
     public static String caesarEncrypt(String s, int offset) {
-        return null;
+
+        int ascOfch
+                ;
+        StringBuilder output = new StringBuilder();
+
+        char changed;
+
+        for (int i = 0; i < s.length(); i++) {
+            ascOfch = s.charAt(i);
+
+            if (ascOfch == 44) {
+                output.append(",");
+            } else if (ascOfch == 32) {
+                output.append(" ");
+            } else if (ascOfch == 46) {
+                output.append(".");
+            } else if (ascOfch >= 97) {
+                ascOfch += offset;
+                while (ascOfch > 122) {
+                    ascOfch -= 26;
+                }
+                while (ascOfch < 97) {
+                    ascOfch += 26;
+                }
+                changed = (char) ascOfch;
+                output.append(changed);
+            } else {
+                if (ascOfch <= 90) {
+                    ascOfch += offset;
+                    while (ascOfch > 90) {
+                        ascOfch -= 26;
+                    }
+                    while (ascOfch < 65) {
+                        ascOfch += 26;
+                    }
+                    changed = (char) ascOfch;
+                    output.append(changed);
+                }
+            }
+
+        }
+        return output.toString();
     }
 
     /**
@@ -42,7 +85,46 @@ public class C_LoopAndString {
      * @param c shift amount
      */
     public static String caesarDecrypt(String s, int c) {
-        return null;
+
+        int ascOfch;
+        StringBuilder output = new StringBuilder();
+        char chanGed;
+        for (int i = 0; i < s.length(); i++) {
+
+
+            ascOfch = s.charAt(i);
+
+            if (ascOfch == 44) {
+                output.append(",");
+            } else if (ascOfch == 32) {
+                output.append(" ");
+            } else if (ascOfch == 46) {
+                output.append(".");
+            } else if (ascOfch >= 97) {
+                ascOfch -= c;
+                while (ascOfch > 122) {
+                    ascOfch -= 26;
+                }
+                while (ascOfch < 97) {
+                    ascOfch += 26;
+                }
+                chanGed = (char) ascOfch;
+                output.append(chanGed);
+            } else {
+                if (ascOfch <= 90) {
+                    ascOfch -= c;
+                    while (ascOfch > 90) {
+                        ascOfch -= 26;
+                    }
+                    while (ascOfch < 65) {
+                        ascOfch += 26;
+                    }
+                    chanGed = (char) ascOfch;
+                    output.append(chanGed);
+                }
+            }
+        }
+        return output.toString();
     }
 
     /*
